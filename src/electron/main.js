@@ -7,17 +7,17 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
-//隐藏菜单
-var remote = require('electron').remote;
-var Menu = remote.Menu;
-var template = [];
-var menu = Menu.buildFromTemplate(template);
+// //hide
+// var remote = require('electron').remote;
+// var Menu = remote.Menu;
+// var template = [];
+// var menu = Menu.buildFromTemplate(template);
 
-Menu.setApplicationMenu(menu);
+// Menu.setApplicationMenu(menu);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+var mainWindow
 
 function createWindow () {
   // Create the browser window.
@@ -31,7 +31,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
