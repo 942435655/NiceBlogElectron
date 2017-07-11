@@ -1,49 +1,76 @@
-# NiceBlogBackEnd（耐思博客）
+# MyBlog（我的博客）
 
-NiceBlog is a series projects about a personal technology blog, Which was based on the project of @AngularClass's "angular-starter" and the project of @Funoqiongqiu's "NiceFish".
+MyBlog是一个基于大漠穷秋NiceFish项目开发的个人技术博客系列项目，使用MEAN-stack技术栈(MongoDB + Express + Angular4 + NodeJs)开发。
 
-- [NiceBlog]：The main App of the series projects，Front-end is based on Angular4 + bootstrap + Webpack。http://github.com/CN-Tower/NiceBlog
+- 【MyBlog】：这是一个博客系统，前端基于Angular 4.0.0 + ng-Bootstrap。http://github.com/CN-Tower/MyBlog
 
-- [NiceBlogAdmin]：This is the system admin interface of NiceBlog，based on AngularCLI + MaterialUI。http://github.com/CN-Tower/NiceBlogAdmin
+- 【MyBlog-Admin】：这是MyBlog的系统管理界面，基于Angular 4.0.0。http://github.com/CN-Tower/MyBlogAdmin
 
-- [NiceBlogIonic]：The mobile App of NiceBlog, based on Ionic。http://github.com/CN-Tower/NiceBlogIonic
+- 【MyBlog-Ionic】：这是MyBlog的移动端，基于ionic。http://github.com/CN-Tower/MyBlogIonic
 
-- [NiceBlogElectron]：The Desk Top App of NiceBlog, based on Electron。http://github.com/CN-Tower/NiceBlogElectron
+- 【MyBlog-BackEnd】：这是MyBlog的后台，基于NodeJS + Express + MongoDB。http://github.com/CN-Tower/MyBlogBackEnd
 
-- [NiceBlogBackEnd]：The back-end server of NiceBlog，based on NodeJS + Express + MongoDB。http://github.com/CN-Tower/NiceBlogBackEnd
+喜欢折腾，乐于分享！一起来玩吧，很好玩的哦 :-)
 
-Love To Research and Happy To Share! Join me, and enjoy it :-)
+用git克隆本项目，从命令行进入进入项目根目录，依次执行以下命令：
 
-[![build](https://travis-ci.org/meowtec/Imagine.svg?branch=master)](https://travis-ci.org/meowtec/Imagine)
+	npm i -g cnpm
+	cnpm i -g @angular/cli
+	cnpm install
+	ng serve
 
-Imagine is a desktop app for compression of PNG and JPEG, with a modern and friendly UI.
+如果之前装过angular-cli需要先卸载：npm uninstall -g angular-cli
+如果之前装过@angular/cli需要先卸载：npm uninstall -g @angular/cli
+如果你之前已经尝试安装过node模块，请把MyBlog根目录下的node_moduels目录删掉
+然后依次执行以下命令：
 
-Save for web!
+	npm cache clean
+	npm i -g cnpm
+	cnpm i -g @angular/cli
+	cnpm install
+	ng serve
 
-## Install
+打开你的浏览器，访问http://localhost:4200/
 
-For Windows and macOS, download the binary below:
+如果你想让加载的包更小，请使用以下方式启动angular-cli内置的轻量级http server
 
-[https://github.com/meowtec/Imagine/releases](https://github.com/meowtec/Imagine/releases)
+	ng serve --prod --aot
 
-[国内加速](https://github.com/meowtec/Imagine/issues/7)
+【注意】如果你发现ng serve起不来，或者起来有报错，请把MyBlog根目录下的node_modules目录删掉，然后重新执行cnpm install，全局的@angular/cli也需要重装。
 
-## Screenshot
+## 更新
 
-[GIF(7.4M)](http://7qn7vf.com1.z0.glb.clouddn.com/IMAGINE2.gif)
+打开命令行，进入MyBlog根目录，依次执行以下命令：
 
-![](http://7qn7vf.com1.z0.glb.clouddn.com/Imagine.png)
+	git pull
+	cnpm update
+	ng serve
 
-## Features
+噢对，如果你pull代码之后发现起不来了，请把你项目下的node_modules全部删掉，然后重新npm update。这里确实有点坑，但是我也不知道为什么。
 
- - Multi format (JPEG, PNG)
- - Cross platform
- - Visual
- - Batch optimization
- - i18n (简体中文, English)
+## AOT&TreeShaking
 
-## Built on
+开发状态打出来的bundle体积比较大，在发布到生产环境之前需要进行prod和AOT，用法如下：
 
- - [Electron](https://electron.atom.io/): Build cross platform desktop apps with JavaScript, HTML, and CSS
- - [pngquant](https://pngquant.org/): Lossy PNG compressor
- - [mozjpeg](https://github.com/mozilla/mozjpeg): Improved JPEG encoder
+打开命令行，进入MyBlog根目录，执行以下命令：
+	
+	ng build --prod --aot
+
+加上--prod参数之后，angular-cli会自动启用TreeShaking（摇树）特性，简而言之，就是把用不到的包全部剔除掉，就像从树上把枯叶子摇下来一样，很形象吧？加上--aot参数是让angular-cli启动预编译特性。
+
+angular-cli会在项目根目录下生成一个dist目录，里面就是编译、压缩好的文件了。仔细观察你会发现，这些文件的体积已经被大幅度压缩，加上gzip之后有一些文件只剩下1/4左右的大小。
+
+![效果图](src/assets/imgs/7.png)
+
+![效果图](src/assets/imgs/8.png)
+
+【请注意】最新版本的angular-cli已经内置了对AOT和TreeShaking的支持，只要像上面这样在build的时候加上--prod和--aot参数就可以了，不需要再做任何其它任何配置工作，官方网站上的那一篇指南有点过时了。
+
+## 注意（请仔细看）
+
+如果你用原生的npm进行安装，可能需要采用科学的上网方式才能安装某些包！
+
+所以强烈推荐采用cnpm来安装！
+
+## 开源许可证
+ MIT
