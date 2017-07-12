@@ -14,6 +14,9 @@ NiceBlog is a series projects about a personal technology blog, Which was based 
 
 Love To Research and Happy To Share! Join me, and enjoy it :-)
 
+### download the windows installer
+Link: https://github.com/CN-Tower/NiceBlogElectron/wiki/Win-Installer
+
 ### Quick start
 **Make sure you have Node version >= 6.0 and NPM >= 3**
 
